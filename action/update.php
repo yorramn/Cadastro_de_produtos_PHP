@@ -4,10 +4,11 @@ session_start();
 if (isset($_POST['enviar'])) {
     $codigo = $_POST['codigo'];
     $nome = $_POST['nome'];
+    $categoria = $_POST['categoria'];
     $preco = floatval($_POST['preco']);
     $quantidade = $_POST['quantidade'];
 
-    $sql = "UPDATE produtos SET nome = '$nome', preco = '$preco', quantidade = '$quantidade' WHERE codigo = '$codigo'";
+    $sql = "UPDATE produtos SET categoria = '$categoria', nome = '$nome', preco = '$preco', quantidade = '$quantidade' WHERE codigo = '$codigo'";
     if (mysqli_query($connect,$sql)) {
         $_SESSION['mensagem'] = "Atualizado com sucesso!";
         header('Location: ../index.php');

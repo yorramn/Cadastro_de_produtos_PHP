@@ -7,8 +7,10 @@ document.querySelector("#confirmar").addEventListener("click",function(){
     let forma = forma_pagamento();
     frm.innerHTML = "A forma de pagamento é: "+forma;
 })
+
 function forma_pagamento() {
     let select = document.querySelector("#formas");
     return select.value;
 }  
+
 

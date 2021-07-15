@@ -3,13 +3,21 @@
 include_once("includes/header.php");
 //conexão com banco de dados
 include_once("action/db_connect.php");
+session_start();
+$id = $_SESSION['id'];
 if (isset($_GET['codigo'])) {
     $codigo = $_GET['codigo'];
 
     $sql = "SELECT * FROM produtos WHERE codigo = '$codigo'";
     $resultado = mysqli_query($connect,$sql);
     $dados = mysqli_fetch_array($resultado);
+
+    
+$consulta = "SELECT * FROM usuario WHERE id = '$id'";
+$query = mysqli_query($connect,$consulta);
+$data = mysqli_fetch_array($query);
 }
+
 
 ?>
 <div class="container">
@@ -30,6 +38,9 @@ if (isset($_GET['codigo'])) {
         </div>
         Quantidade:
         <input type="text" name="quantidadeC" id="quantidade" required>
+        Nome do funcionário:
+        <input type="text"  value=" <?php echo $data['nome']; ?>  " readonly>
+        <input type="hidden" name="id_funcionario" value=" <?php echo $data['id']; ?>  " >
 
 
         <div class="row container">

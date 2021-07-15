@@ -1,4 +1,6 @@
 <?php
+//conexão com banco de dados
+include_once("action/db_connect.php");
 //header
 include_once("includes/header.php");
 ?>
@@ -12,6 +14,19 @@ include_once("includes/header.php");
         <input type="text" name="preco" id="" required>
         Quantidade:
         <input type="number" name="quantidade" id="" required>
+        Categoria:
+        <?php 
+                        $pesquisa = "SELECT * FROM categorias";
+                        $query = mysqli_query($connect,$pesquisa);
+                        while ($dado = mysqli_fetch_array($query)) {
+                    ?>
+                    <p>
+                      <label>
+                      <input class="with-gap" name="categoria" type="radio" value="<?php echo $dado['nome']; ?>">
+                          <span><?php echo $dado['nome']; ?></span>
+                      </label>
+                    </p>
+                    <?php } ?>
 
         
         <button class="btn" name="enviar" id="btn-create">Enviar</button>

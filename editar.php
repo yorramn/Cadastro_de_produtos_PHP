@@ -22,7 +22,18 @@ if (isset($_GET['codigo'])) {
         <input type="text" name="preco" id="" required value="<?php echo $dados['preco'] ?>">
         Quantidade:
         <input type="number" name="quantidade" id="" required value="<?php echo $dados['quantidade'] ?>">
-
+        <?php 
+                        $pesquisa = "SELECT * FROM categorias";
+                        $query = mysqli_query($connect,$pesquisa);
+                        while ($dado = mysqli_fetch_array($query)) {
+                    ?>
+                    <p>
+                      <label>
+                      <input class="with-gap" name="categoria" type="radio" value="<?php echo $dado['nome']; ?>">
+                          <span><?php echo $dado['nome']; ?></span>
+                      </label>
+                    </p>
+                    <?php } ?>
         
         <button class="btn" name="enviar" id="btn-create">Enviar</button>
 

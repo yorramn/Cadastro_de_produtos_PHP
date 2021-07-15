@@ -27,7 +27,7 @@ include_once("includes/header.php");
         </div>
       </div>
       <div class="input-field col s12">
-        <select onchange="forma-pagamento()" id="formas" name="forma">
+        <select onchange="forma-pagamento()" id="formas" name="cargo">
           <option value="" disabled selected>Selecione o cargo</option>
           <option value="Gerente">Gerente</option>
           <option value="Balconista">Balconista</option>
